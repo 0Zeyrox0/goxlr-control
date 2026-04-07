@@ -3,6 +3,10 @@ name: GoxlrControl
 version: 0.1.0
 displayName: Goxlr Control
 description: Control your GoXLR via GoXLR Utility - Fader volumes, mutes and cough button. Important GoXLR Utility must be used!
+author: 0Zeyrox0
+homePageUrl: https://github.com/0Zeyrox0/goxlr-control
+copyright: Copyright (c) 2026 0Zeyrox0
+license: MIT
 minimumLoupedeckVersion: 6.1
 
 pluginType: remote
