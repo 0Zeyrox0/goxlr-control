@@ -50,23 +50,22 @@ class VolumeAdjustment extends AdjustmentAction {
   protected step = 5;
   private volume: number | null = null;
 
-  private async ensureVolume() {
-    if (this.volume !== null) return;
+  private async fetchVolume(): Promise<number> {
     try {
       const serial = await getSerial();
       const res = await fetch(
         `http://localhost:14564/api/path?path=$.mixers.${serial}.levels.volumes.${this.channel}`
       );
       const val = await res.json();
-      this.volume = typeof val === 'number' ? val : Array.isArray(val) ? val[0] : 128;
+      return typeof val === 'number' ? val : Array.isArray(val) ? val[0] : this.volume ?? 128;
     } catch {
-      this.volume = 128;
+      return this.volume ?? 128;
     }
   }
 
   async execute(event: { tick: number }) {
-    await this.ensureVolume();
-    this.volume = Math.min(255, Math.max(0, this.volume! + event.tick * this.step));
+    this.volume = await this.fetchVolume();
+    this.volume = Math.min(255, Math.max(0, this.volume + event.tick * this.step));
     await goxlrCommand({ SetVolume: [this.channel, this.volume] });
   }
 }

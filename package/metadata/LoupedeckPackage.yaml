@@ -1,6 +1,6 @@
 type: plugin4
 name: GoxlrControl
-version: 0.1.0
+version: 0.1.1
 displayName: Goxlr Control
 description: Control your GoXLR via GoXLR Utility - Fader volumes, mutes and cough button. Important GoXLR Utility must be used!
 author: 0Zeyrox0
