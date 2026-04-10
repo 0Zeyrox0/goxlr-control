@@ -58,7 +58,7 @@ class VolumeAdjustment extends AdjustmentAction {
         `http://localhost:14564/api/path?path=$.mixers.${serial}.levels.volumes.${this.channel}`
       );
       const val = await res.json();
-      this.volume = typeof val === 'number' ? val : 128;
+      this.volume = typeof val === 'number' ? val : Array.isArray(val) ? val[0] : 128;
     } catch {
       this.volume = 128;
     }
