@@ -55,6 +55,13 @@ cd goxlr-control
 npm install
 npm run watch
 ```
+to build it
+
+```bash
+npm run build
+```
+
+
 
 The plugin will automatically link to Logi Plugin Service and appear in Logi Options+.
 
@@ -130,4 +137,4 @@ MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
-> **Disclaimer:** This project is not affiliated with TC-Helicon, Logitech, or the GoXLR Utility team. Use at your own risk.
+> **Disclaimer:** This project is not affiliated with TC-Helicon, Logitech(Waiting for approval from Logitech), or the GoXLR Utility team. Use at your own risk.
